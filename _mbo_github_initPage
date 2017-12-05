@@ -28,3 +28,29 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 Import code
  ProTip! Use the URL for this page when adding GitHub as a remote.
+
+Erstellen von repo
+1. mkdir irgendeinfoldernamehier
+2. cd derfoldernamehier
+3. git clone https://github.com/sl500/lindesapp
+4. cd lindesapp
+5. npm install
+6. ng serve
+
+lokale version zum uploaden/pushen
+1. git status
+2. git add *
+3. git status
+4. git commit -m "message"
+
+
+Remote zum uploaden/push vorbereiten
+git remote -v
+git remote add lindesapp https://github.com/sl500/lindesapp.git
+git remote -v
+
+lokale version zum remote uploaden/push 
+git push -u lindesapp master
+
+
+
