@@ -13,12 +13,18 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverWasCreated = false;
+  showSecretPassword = false;
   
   // serverWasCreated = false;
   serverCreationStatus = 'No server was created!';
   userCreationStatus = 'No user was created!';
   serverName = '';
   userName = '';
+  servers = ['Testserver', 'Testserver 2'];
+
+  // aufgabe 4
+  buttonClickCounter = 0;
+  buttonClickLogArray = [];
   
   constructor() {
     setTimeout(() => {
@@ -31,6 +37,8 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     this.serverWasCreated = true;
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+    this.servers.push(this.serverName);
+
   //   if (this.serverWasCreated==false){
   //   this.serverWasCreated = true;    
   //   this.serverCreationStatus = 'Server was created!';
@@ -48,7 +56,23 @@ export class ServersComponent implements OnInit {
     this.userName = "";
 
   }
-  onUpdateUserName(){
-    ;
+  onShowPassword() {
+
+    this.buttonClickLogArray.push(this.buttonClickCounter);
+    this.buttonClickCounter++;
+
+    // variante 1 ausführlich
+    /*  if (this.showSecretPassword === true){
+      this.showSecretPassword = false;
+    } else{
+      this.showSecretPassword = true;
+    } */
+
+    // variante 2 syntactic sugar
+    //this.showSecretPassword === true ? this.showSecretPassword=false : this.showSecretPassword=true;
+    
+    // variante 3 ohne if
+    this.showSecretPassword = !this.showSecretPassword;
+    
   }
 }
